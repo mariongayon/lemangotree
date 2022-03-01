@@ -1,0 +1,70 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" type="image/png" href="{{ site.github.url }}/images/favicons/favicon.ico">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="{{ site.github.url }}/images/icons/icon-lemangotree-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="{{ site.github.url }}/images/icons/icon-lemangotree-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="{{ site.github.url }}/images/icons/icon-lemangotree-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ site.github.url }}/images/icons/icon-lemangotree-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="{{ site.github.url }}/images/icons/icon-lemangotree-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="{{ site.github.url }}/images/icons/icon-lemangotree-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="{{ site.github.url }}/images/icons/icon-lemangotree-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="{{ site.github.url }}/images/icons/icon-lemangotree-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ site.github.url }}/images/icons/icon-lemangotree-180x180.png">
+
+  <meta name="apple-mobile-web-app-title" content="Le Mango Tree">
+  <meta name="application-name" content="Le Mango Tree">
+  <meta name="msapplication-TileColor" content="#fff">
+  <meta name="msapplication-TileImage" content="{{ site.github.url }}/images/icons/icon-lemangotree-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Google Site Verification -->
+  <meta name="google-site-verification" content="rKjelakoYIXflujwSm24npukuaUSnJ67dOwaEcRsH2w" />
+
+  <!-- Open Graph FB -->
+  <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:url" content="{{ site.github.url }}">
+  <meta property="og:image" content="{{ site.github.url }}/{{ page.thumbnail }}"/>
+  <meta property="og:site_name" content="{{ site.title }}">
+
+  <!-- Twitter card data -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@lemangotree">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+  <meta name="twitter:description" content="{{ site.description }}">
+  <meta name="twitter:creator" content="@lemangotree">
+  <meta name="twitter:image:src" content="{{ site.github.url }}/{{ page.thumbnail }}">
+
+  <!-- Schema.org markup for Google+ -->
+  <meta itemprop="name" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+  <meta itemprop="description" content="{{ site.description }}">
+  <meta itemprop="image" content="{{ site.github.url }}/{{ page.thumbnail }}">
+
+  <!-- Links Vendors & CSS -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,500,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ site.github.url }}/css/main.css">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+
+  <!-- Load jQuery -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-78430073-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>

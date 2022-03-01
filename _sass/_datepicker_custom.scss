@@ -1,0 +1,40 @@
+.ui-widget.ui-widget-content {
+  margin-top: 5px !important;
+  background: #fff !important;
+  border: 1px solid rgba(0,0,0,0.2) !important;
+}
+
+.ui-widget-header {
+  border: none !important;
+  background: transparent !important;
+  color: #555 !important;
+  font-weight: 400 !important;
+}
+
+.ui-state-default {
+  background: #fffcf4 !important;
+  color: #38e2aa !important;
+}
+
+a.ui-datepicker-next.ui-corner-all.ui-state-hover.ui-datepicker-next-hover,
+a.ui-datepicker-prev.ui-corner-all.ui-state-hover.ui-datepicker-prev-hover {
+  background-color: white !important;
+  border: none !important;
+  cursor: pointer;
+}
+
+.ui-datepicker .ui-datepicker-next span {
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 6px solid black;
+}
+
+.ui-datepicker .ui-datepicker-prev span {
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right:6px solid black;
+}

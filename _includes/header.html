@@ -1,0 +1,11 @@
+<header id="header">
+  <div class="container-logo">
+    <img src="{{ site.github.url }}/images/logo-mangotree-blue.png" alt="">
+  </div>
+  <div class="header-content">
+    <h1>{% if page.title %}{{ page.title | escape }}{% else %}Bar à fruits · 100% naturel · Lunch · Brunch · Événements{% endif %}</h1>
+    <p>Plage du Parc Rosny, 40130 Hossegor</p>
+    <!-- SVG Divider -->
+    {% include svg/separator.html %}
+  </div>
+</header>

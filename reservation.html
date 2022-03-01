@@ -1,0 +1,171 @@
+---
+layout: reservation
+title: Réservez votre brunch au Mango tree
+thumbnail: images/creations/nos_creations_3.jpg
+---
+
+<header id="header" class="header-reservation">
+  <div class="container-logo">
+    <img src="{{ site.github.url }}/images/logo-mangotree-blue.png" alt="">
+  </div>
+</header>
+
+<div class="container">
+  <section id="intro" class="brunch-intro" style="padding: 120px 0 30px 0;">
+    <h2>Réservez votre brunch</h2>
+    <!-- SVG Divider -->
+    {% include svg/separator.html %}
+    <p>D'avril à octobre, tous les dimanches, de 10h30 à 14h, nous préparons sous vos yeux un magnifique plateau très complet, gourmand et fruité. Réservez vite votre brunch healthy et coloré au Mango Tree !</p>
+  </section>
+</div>
+
+<div class="reservation-wrapper">
+
+  <div class="brunch-details">
+    <h2>Au menu</h2>
+    {% include svg/separator.html %}
+    <ul>
+      <li>Thé ou café</li>
+      <li>Jus de fruits frais</li>
+      <li>Croissant tout chaud</li>
+      <li>Assortiment de pains, beurre demi sel et confitures</li>
+      <li>Toast de houmous maison au curcuma, concombre, roquette, coco, sésame et grenade</li>
+      <li>Guacamole maison et ses légumes croquants</li>
+      <li>Salade de fruits frais exotiques et de saison</li>
+      <li>Petite madeleine maison au chocolat et coco</li>
+      <li>Granola parfait, fromage blanc, compote crue de pomme et noisettes toastées</li>
+    </ul>
+    <i>22€</i>
+  </div>
+
+  <form id="booking_form" method="POST" action="https://formspree.io/f/mayadvva" data-parsley-validate="">
+    <input type="hidden" name="_subject" />
+    <input type="text" name="_gotcha" style="display:none" />
+    <input type="hidden" name="_cc" value="ag1mpanr@robot.zapier.com" />
+    <label>Prénom*</label>
+    <input type="text" name="Nom" placeholder="Boby Lapointe" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Boby Lapointe'" required="" style="width: 320px;"/>
+    <label>Email*</label>
+    <input type="email" name="_replyto" placeholder="boby@lapointe.com" onfocus="this.placeholder = ''" onblur="this.placeholder = 'boby@lapointe.com'" data-parsley-type="email" required="" style="width: 320px;"/>
+    <label>Téléphone*</label>
+    <input type="tel" name="Phone number" placeholder="0645454545" onfocus="this.placeholder = ''" onblur="this.placeholder = '0645454545'" required="" minlength="10" data-parsley-pattern="((?:\+|00)[17](?: |\-)?|(?:\+|00)[1-9]\d{0,2}(?: |\-)?|(?:\+|00)1\-\d{3}(?: |\-)?)?(0\d|\([0-9]{3}\)|[1-9]{0,3})(?:((?: |\-)[0-9]{2}){4}|((?:[0-9]{2}){4})|((?: |\-)[0-9]{3}(?: |\-)[0-9]{4})|([0-9]{7}))" style="width: 230px;">
+    <label>Choisissez votre date</label>
+    <input type="text" id="datepicker" placeholder="jj/mm/aa" style="width: 230px;">
+    <textarea id="getDate" name="Date de réservation" style="display: none;"></textarea>
+    <label>Nombre de personnes</label>
+    <select name="Nombre de personnes" placeholder="1">
+      <option value="1 personne" selected>1</option>
+      <option value="2 personnes">2</option>
+      <option value="3 personnes">3</option>
+      <option value="4 personnes">4</option>
+      <option value="5 personnes">5</option>
+      <option value="6 personnes">6</option>
+      <option value="7+ personnes">7+</option>
+    </select>
+    <label>Dites-le nous</label>
+    <textarea name="Message (optionnel)" placeholder="Un petit mot ? Une allergie ? Un régime spécial ?" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Un petit mot ? Une allergie ? Un régime spécial ?'" rows="13" cols="20"></textarea>
+    <button type="submit">Je réserve</button>
+    <input type="hidden" name="_next" value="validate"/>
+  </form>
+
+
+  <script>
+
+    const submitButton = document.querySelector('button');
+    let defaultDate = document.getElementById('datepicker');
+    const mailSubject = document.querySelector('input[name="_subject"]');
+    const people = document.querySelector('select');
+
+    $(document).ready(function(){
+      $.datepicker.regional['fr'] = {
+        closeText: 'Fermer',
+        prevText: '&#x3c;Préc',
+        nextText: 'Suiv&#x3e;',
+        currentText: 'Aujourd\'hui',
+        monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin',
+        'Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+        monthNamesShort: ['Jan','Fev','Mar','Avr','Mai','Jun',
+        'Jul','Aou','Sep','Oct','Nov','Dec'],
+        dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+        dayNamesShort: ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'],
+        dayNamesMin: ['Di','Lu','Ma','Me','Je','Ve','Sa'],
+        weekHeader: 'Sm',
+        dateFormat: 'dd MM yy',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: '',
+        minDate: 1,
+        maxDate: '+12M +0D',
+        numberOfMonths: 1,
+        showButtonPanel: false
+      };
+
+      $.datepicker.setDefaults($.datepicker.regional['fr']);
+      $.datepicker.formatDate( "dd MM yy", new Date() );
+      $( "#datepicker" ).datepicker({
+        minDate: new Date(2021, 03, 1),
+        maxDate: new Date(2021, 09, 15),
+        beforeShowDay: function(date){ return [date.getDay() == 0,""]}
+      });
+    });
+
+    $(document).ready(function(){
+      Parsley.addMessages('fr', {
+        defaultMessage: "Cette valeur semble non valide.",
+        type: {
+          email:        "Adresse email non valide.",
+          url:          "Cette valeur n'est pas une URL valide.",
+          number:       "Cette valeur doit être un nombre.",
+          integer:      "Cette valeur doit être un entier.",
+          digits:       "Cette valeur doit être numérique.",
+          alphanum:     "Cette valeur doit être alphanumérique."
+        },
+        notblank:       "Cette valeur ne peut pas être vide.",
+        required:       "Ce champ est requis.",
+        pattern:        "Numéro non valide.",
+        min:            "Cette valeur ne doit pas être inférieure à %s.",
+        max:            "Cette valeur ne doit pas excéder %s.",
+        range:          "Cette valeur doit être comprise entre %s et %s.",
+        minlength:      "Cette chaîne est trop courte. Elle doit avoir au minimum %s caractères.",
+        maxlength:      "Cette chaîne est trop longue. Elle doit avoir au maximum %s caractères.",
+        length:         "Cette valeur doit contenir entre %s et %s caractères.",
+        mincheck:       "Vous devez sélectionner au moins %s choix.",
+        maxcheck:       "Vous devez sélectionner %s choix maximum.",
+        check:          "Vous devez sélectionner entre %s et %s choix.",
+        equalto:        "Cette valeur devrait être identique."
+      });
+
+      Parsley.setLocale('fr');
+
+      $('#booking_form').parsley({
+        excluded: 'input[type=hidden], :disabled'
+      });
+
+      $('#booking_form').parsley().on('field:validated', function() {
+        var ok = $('.parsley-error').length === 0;
+        $('.bs-callout-info').toggleClass('hidden', !ok);
+
+      }).on('form:submit', function() {
+        return true; // Don't submit form for this demo
+      });
+    });
+
+    submitButton.addEventListener('click', () => {
+      defaultDate = $("#datepicker").datepicker().val();
+      getDate = document.getElementById('getDate');
+      getDate.value = defaultDate;
+      getPeople = document.querySelector('select').value;
+      mailSubject.value = '[BRUNCH] - ' + getPeople + ', le ' + getDate.value;
+    });
+  </script>
+</div>
+
+<section id="instagram">
+  <h2>Suivez-nous sur Instagram !</h2>
+  <!-- SVG Divider -->
+  {% include svg/separator.html %}
+  <p><a href="https://www.instagram.com/lemangotree/" alt="Lien vers le compte instagram du Mango Tree">@lemangotree</a></p>
+  <div id="instafeed">
+    <!-- Instagram gallery -->
+  </div>
+</section>

@@ -1,0 +1,70 @@
+<section id="contact" class="contact-details">
+    <h2>Retrouvez-nous !</h2>
+    <!-- SVG Divider -->
+    {% include svg/separator.html %}
+
+    <div class="address-container">
+      <address>
+        <h3>Le Mango Tree</h3>
+        <i>La guinguette du lac</i>
+        <p>Plage du Parc Rosny<br>40150 Hossegor</p>
+        <a class="locator" onclick="navigate(43.66199766617055,-1.428579105626675)" >Retrouvez-nous au lac</a>
+      </address>
+      <address>
+        <h3>Le Mango Tree</h3>
+        <i>by the sea</i>
+        <p>88 Place des Landais<br>40150 Hossegor</p>
+        <a class="locator" onclick="navigate(43.663022,-1.442573)" >Retrouvez-nous à l'océan</a>
+      </address>
+    </div>
+
+    <!-- SVG Divider -->
+    {% include svg/separator.html %}
+
+    <div class="contact-details">
+      <p>contact@lemangotree.com<br>06.89.61.68.70</p>
+      <p>Tenez-vous au jus !</p>
+    </div>
+    
+    <ul>
+      <li><a href="http://facebook.com/lemangotree" alt="Lien vers le compte facebook du Mango Tree">{% include svg/icon_facebook.html %}</a></li>
+      <li><a href="https://www.instagram.com/lemangotree/" alt="Lien vers le compte instagram du Mango Tree">{% include svg/icon_instagram.html %}</a></li>
+    </ul>
+</section>
+
+<section id="instagram">
+  <h2>Suivez-nous sur Instagram !</h2>
+  <!-- SVG Divider -->
+  {% include svg/separator.html %}
+  <p><a href="https://www.instagram.com/lemangotree/" alt="Lien vers le compte instagram du Mango Tree">@lemangotree</a></p>
+  <div id="instafeed">
+    <!-- Instagram gallery -->
+  </div>
+</section>
+
+<script>
+function navigate(lat, lng) {
+    // If it's an iPhone..
+    if ((navigator.platform.indexOf("iPhone") !== -1) || (navigator.platform.indexOf("iPod") !== -1)) {
+      function iOSversion() {
+        if (/iP(hone|od|ad)/.test(navigator.platform)) {
+          // supports iOS 2.0 and later: <http://bit.ly/TJjs1V>
+          var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+          return [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
+        }
+      }
+      var ver = iOSversion() || [0];
+
+      if (ver[0] >= 6) {
+        protocol = 'maps://';
+      } else {
+        protocol = 'http://';
+
+      }
+      window.location = protocol + 'maps.apple.com/maps?saddr=My%20Location&daddr=' + lat + ',' + lng + '&amp;ll=';
+    }
+    else {
+      window.open('http://maps.google.com?saddr=My%20Location&daddr=' + lat + ',' + lng + '&z=12&amp;ll=');
+    }
+  }
+</script>
