@@ -17,5 +17,5 @@ facebook_username: lemangotree
 # Build settings
 markdown: kramdown
 
-gems:
+plugins:
   - jekyll-sitemap
